@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.6.0
-Release  : 1
+Release  : 2
 URL      : https://pypi.python.org/packages/bb/a7/d27e38f33c600ac823680e41b1f6780ad7b8a7f582d115b35da50712d1e2/zope.testrunner-4.6.0.zip
 Source0  : https://pypi.python.org/packages/bb/a7/d27e38f33c600ac823680e41b1f6780ad7b8a7f582d115b35da50712d1e2/zope.testrunner-4.6.0.zip
 Summary  : Zope testrunner script.
@@ -12,6 +12,12 @@ Group    : Development/Tools
 License  : ZPL-2.1
 Requires: zope.testrunner-bin
 Requires: zope.testrunner-python
+Requires: python-subunit
+Requires: setuptools
+Requires: six
+Requires: zope.exceptions
+Requires: zope.interface
+Requires: zope.testing
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pluggy
@@ -52,15 +58,18 @@ python components for the zope.testrunner package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1485818671
+export SOURCE_DATE_EPOCH=1492372546
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1485818671
+export SOURCE_DATE_EPOCH=1492372546
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -71,4 +80,5 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
