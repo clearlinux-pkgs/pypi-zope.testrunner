@@ -6,7 +6,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.7.0
-Release  : 4
+Release  : 5
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.7.0.zip
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.7.0.zip
 Source99 : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.7.0.zip.asc
@@ -32,12 +32,11 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-***************
 zope.testrunner
-***************
-|buildstatus|_
-|winbotstatus|_
-.. contents::
+        ***************
+        
+        |buildstatus|_
+        |winbotstatus|_
 
 %package bin
 Summary: bin components for the zope.testrunner package.
@@ -63,12 +62,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1496190775
+export SOURCE_DATE_EPOCH=1503089856
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1496190775
+export SOURCE_DATE_EPOCH=1503089856
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
