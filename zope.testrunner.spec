@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.8.1
-Release  : 18
+Release  : 19
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Summary  : Zope testrunner script.
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : ZPL-2.1
 Requires: zope.testrunner-bin
 Requires: zope.testrunner-python3
+Requires: zope.testrunner-license
 Requires: zope.testrunner-python
 Requires: setuptools
 Requires: six
@@ -23,7 +24,6 @@ BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -37,6 +37,7 @@ zope.testrunner
 %package bin
 Summary: bin components for the zope.testrunner package.
 Group: Binaries
+Requires: zope.testrunner-license
 
 %description bin
 bin components for the zope.testrunner package.
@@ -49,6 +50,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the zope.testrunner package.
+
+
+%package license
+Summary: license components for the zope.testrunner package.
+Group: Default
+
+%description license
+license components for the zope.testrunner package.
 
 
 %package python
@@ -77,13 +86,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528563702
+export SOURCE_DATE_EPOCH=1529091155
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1528563702
+export SOURCE_DATE_EPOCH=1529091155
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/zope.testrunner
+cp LICENSE.rst %{buildroot}/usr/share/doc/zope.testrunner/LICENSE.rst
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -100,6 +111,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/zope.testrunner/LICENSE.rst
 
 %files python
 %defattr(-,root,root,-)
