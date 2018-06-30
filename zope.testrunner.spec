@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.8.1
-Release  : 22
+Release  : 23
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Summary  : Zope testrunner script.
@@ -24,6 +24,8 @@ BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -86,12 +88,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1529091155
+export SOURCE_DATE_EPOCH=1530378577
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1529091155
+export SOURCE_DATE_EPOCH=1530378577
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/zope.testrunner
 cp LICENSE.rst %{buildroot}/usr/share/doc/zope.testrunner/LICENSE.rst
