@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.8.1
-Release  : 28
+Release  : 29
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Summary  : Zope testrunner script.
