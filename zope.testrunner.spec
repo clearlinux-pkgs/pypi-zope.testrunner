@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 4.8.1
-Release  : 30
+Release  : 31
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Summary  : Zope testrunner script.
@@ -18,7 +18,6 @@ Requires: setuptools
 Requires: six
 Requires: zope.exceptions
 Requires: zope.interface
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
@@ -42,15 +41,6 @@ Requires: zope.testrunner-license = %{version}-%{release}
 
 %description bin
 bin components for the zope.testrunner package.
-
-
-%package legacypython
-Summary: legacypython components for the zope.testrunner package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the zope.testrunner package.
 
 
 %package license
@@ -87,17 +77,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554336353
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554339686
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1554336353
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/zope.testrunner
 cp LICENSE.rst %{buildroot}/usr/share/package-licenses/zope.testrunner/LICENSE.rst
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -108,10 +97,6 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/zope-testrunner
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)
