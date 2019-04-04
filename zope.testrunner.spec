@@ -4,42 +4,41 @@
 #
 Name     : zope.testrunner
 Version  : 4.8.1
-Release  : 29
+Release  : 30
 URL      : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Source0  : https://pypi.debian.net/zope.testrunner/zope.testrunner-4.8.1.tar.gz
 Summary  : Zope testrunner script.
 Group    : Development/Tools
 License  : ZPL-2.1
-Requires: zope.testrunner-bin
-Requires: zope.testrunner-python3
-Requires: zope.testrunner-license
-Requires: zope.testrunner-python
+Requires: zope.testrunner-bin = %{version}-%{release}
+Requires: zope.testrunner-license = %{version}-%{release}
+Requires: zope.testrunner-python = %{version}-%{release}
+Requires: zope.testrunner-python3 = %{version}-%{release}
 Requires: setuptools
 Requires: six
 Requires: zope.exceptions
 Requires: zope.interface
-Requires: zope.testing
-BuildRequires : pbr
-BuildRequires : pip
+BuildRequires : buildreq-distutils23
+BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
 BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
+***************
 zope.testrunner
-        ***************
+***************
+.. image:: https://img.shields.io/pypi/v/zope.testrunner.svg
+:target: https://pypi.python.org/pypi/zope.testrunner/
+:alt: Latest release
 
 %package bin
 Summary: bin components for the zope.testrunner package.
 Group: Binaries
-Requires: zope.testrunner-license
+Requires: zope.testrunner-license = %{version}-%{release}
 
 %description bin
 bin components for the zope.testrunner package.
@@ -65,7 +64,7 @@ license components for the zope.testrunner package.
 %package python
 Summary: python components for the zope.testrunner package.
 Group: Default
-Requires: zope.testrunner-python3
+Requires: zope.testrunner-python3 = %{version}-%{release}
 
 %description python
 python components for the zope.testrunner package.
@@ -88,15 +87,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530378577
+export SOURCE_DATE_EPOCH=1554336353
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1530378577
+export SOURCE_DATE_EPOCH=1554336353
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/zope.testrunner
-cp LICENSE.rst %{buildroot}/usr/share/doc/zope.testrunner/LICENSE.rst
+mkdir -p %{buildroot}/usr/share/package-licenses/zope.testrunner
+cp LICENSE.rst %{buildroot}/usr/share/package-licenses/zope.testrunner/LICENSE.rst
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -115,8 +114,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/zope.testrunner/LICENSE.rst
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/zope.testrunner/LICENSE.rst
 
 %files python
 %defattr(-,root,root,-)
