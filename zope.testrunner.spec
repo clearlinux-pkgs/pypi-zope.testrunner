@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 5.0
-Release  : 34
+Release  : 35
 URL      : https://files.pythonhosted.org/packages/85/3c/515bf5b2259e28252e0141121c9419ad417abd52d434c94a6050dc8be522/zope.testrunner-5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/85/3c/515bf5b2259e28252e0141121c9419ad417abd52d434c94a6050dc8be522/zope.testrunner-5.0.tar.gz
 Summary  : Zope testrunner script.
@@ -22,17 +22,16 @@ BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : setuptools-legacypython
+BuildRequires : setuptools
+BuildRequires : six
 BuildRequires : tox
 BuildRequires : virtualenv
+BuildRequires : zope.exceptions
+BuildRequires : zope.interface
 
 %description
-=================
 zope.testrunner
-=================
-.. image:: https://img.shields.io/pypi/v/zope.testrunner.svg
-:target: https://pypi.org/project/zope.testrunner/
-:alt: Latest release
+        =================
 
 %package bin
 Summary: bin components for the zope.testrunner package.
@@ -76,8 +75,9 @@ python3 components for the zope.testrunner package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557023715
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571158344
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -92,7 +92,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/zope.testrunner
-cp LICENSE.rst %{buildroot}/usr/share/package-licenses/zope.testrunner/LICENSE.rst
+cp %{_builddir}/zope.testrunner-5.0/LICENSE.rst %{buildroot}/usr/share/package-licenses/zope.testrunner/a0b53f43aab58b46bf79ba756c50771c605ab4c5
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -107,7 +107,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/zope.testrunner/LICENSE.rst
+/usr/share/package-licenses/zope.testrunner/a0b53f43aab58b46bf79ba756c50771c605ab4c5
 
 %files python
 %defattr(-,root,root,-)
