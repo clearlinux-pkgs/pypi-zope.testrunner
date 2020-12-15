@@ -4,7 +4,7 @@
 #
 Name     : zope.testrunner
 Version  : 5.2
-Release  : 44
+Release  : 45
 URL      : https://files.pythonhosted.org/packages/b2/18/1a064dc76a77b03819c8fa3747bf79587ef5309018185f6a5a1af7089ac1/zope.testrunner-5.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b2/18/1a064dc76a77b03819c8fa3747bf79587ef5309018185f6a5a1af7089ac1/zope.testrunner-5.2.tar.gz
 Summary  : Zope testrunner script.
