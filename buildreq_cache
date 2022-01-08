@@ -1,10 +1,5 @@
 5.4.0
-pypi(python_subunit)
 pypi(setuptools)
 pypi(six)
-pypi(sphinx)
-pypi(sphinxcontrib_programoutput)
-pypi(testtools)
 pypi(zope.exceptions)
 pypi(zope.interface)
-pypi(zope.testing)
