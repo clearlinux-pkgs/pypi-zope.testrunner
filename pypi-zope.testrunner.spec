@@ -4,7 +4,7 @@
 #
 Name     : pypi-zope.testrunner
 Version  : 5.4.0
-Release  : 57
+Release  : 58
 URL      : https://files.pythonhosted.org/packages/6c/fd/a63c8430fae1b4b6f978561d1df65684bf3c22d0e69db00b415ab5754c3d/zope.testrunner-5.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6c/fd/a63c8430fae1b4b6f978561d1df65684bf3c22d0e69db00b415ab5754c3d/zope.testrunner-5.4.0.tar.gz
 Summary  : Zope testrunner script.
@@ -78,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641603683
+export SOURCE_DATE_EPOCH=1649801507
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
