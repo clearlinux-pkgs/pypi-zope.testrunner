@@ -4,7 +4,7 @@
 #
 Name     : pypi-zope.testrunner
 Version  : 5.6
-Release  : 67
+Release  : 68
 URL      : https://files.pythonhosted.org/packages/f6/b3/46a3e5b2d79170e9b04944ba26cf520f1d3fd8cb122076dd730d5e173404/zope.testrunner-5.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f6/b3/46a3e5b2d79170e9b04944ba26cf520f1d3fd8cb122076dd730d5e173404/zope.testrunner-5.6.tar.gz
 Summary  : Zope testrunner script.
