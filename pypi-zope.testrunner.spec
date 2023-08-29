@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-zope.testrunner
-Version  : 6.0
-Release  : 69
-URL      : https://files.pythonhosted.org/packages/b3/2b/3f6879377744e7f790cac882f72dc74781ebc35fce9de5d76004cd0457d9/zope.testrunner-6.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/b3/2b/3f6879377744e7f790cac882f72dc74781ebc35fce9de5d76004cd0457d9/zope.testrunner-6.0.tar.gz
+Version  : 6.1
+Release  : 70
+URL      : https://files.pythonhosted.org/packages/69/9a/6cb05a12b0551bdbd42477d20ce3894a6a5522df60ec9c6817dd927f2bc7/zope.testrunner-6.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/69/9a/6cb05a12b0551bdbd42477d20ce3894a6a5522df60ec9c6817dd927f2bc7/zope.testrunner-6.1.tar.gz
 Summary  : Zope testrunner script.
 Group    : Development/Tools
 License  : ZPL-2.1
@@ -76,10 +76,10 @@ python3 components for the pypi-zope.testrunner package.
 
 
 %prep
-%setup -q -n zope.testrunner-6.0
-cd %{_builddir}/zope.testrunner-6.0
+%setup -q -n zope.testrunner-6.1
+cd %{_builddir}/zope.testrunner-6.1
 pushd ..
-cp -a zope.testrunner-6.0 buildavx2
+cp -a zope.testrunner-6.1 buildavx2
 popd
 
 %build
@@ -87,15 +87,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680015643
+export SOURCE_DATE_EPOCH=1693326204
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 

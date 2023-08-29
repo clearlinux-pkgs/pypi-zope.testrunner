@@ -1,5 +1,5 @@
 PKG_NAME := pypi-zope.testrunner
-URL = https://files.pythonhosted.org/packages/b3/2b/3f6879377744e7f790cac882f72dc74781ebc35fce9de5d76004cd0457d9/zope.testrunner-6.0.tar.gz
+URL = https://files.pythonhosted.org/packages/69/9a/6cb05a12b0551bdbd42477d20ce3894a6a5522df60ec9c6817dd927f2bc7/zope.testrunner-6.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
