@@ -6,10 +6,10 @@
 # autospec commit: fbbd4e3
 #
 Name     : pypi-zope.testrunner
-Version  : 7.1
-Release  : 86
-URL      : https://files.pythonhosted.org/packages/9c/1c/f4d7a185f3064ff0defdff0705c5cc521cae7f33dedff9e3f9ad18dc9bc6/zope_testrunner-7.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/9c/1c/f4d7a185f3064ff0defdff0705c5cc521cae7f33dedff9e3f9ad18dc9bc6/zope_testrunner-7.1.tar.gz
+Version  : 7.2
+Release  : 87
+URL      : https://files.pythonhosted.org/packages/85/80/a01c595683406b31b33a136907d252de7b4a56ee5553990aa363866bbe80/zope_testrunner-7.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/85/80/a01c595683406b31b33a136907d252de7b4a56ee5553990aa363866bbe80/zope_testrunner-7.2.tar.gz
 Summary  : Zope testrunner script.
 Group    : Development/Tools
 License  : ZPL-2.1
@@ -76,10 +76,10 @@ python3 components for the pypi-zope.testrunner package.
 
 
 %prep
-%setup -q -n zope_testrunner-7.1
-cd %{_builddir}/zope_testrunner-7.1
+%setup -q -n zope_testrunner-7.2
+cd %{_builddir}/zope_testrunner-7.2
 pushd ..
-cp -a zope_testrunner-7.1 buildavx2
+cp -a zope_testrunner-7.2 buildavx2
 popd
 
 %build
@@ -87,7 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1741198230
+export SOURCE_DATE_EPOCH=1742466432
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
